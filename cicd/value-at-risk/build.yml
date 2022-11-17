@@ -1,0 +1,29 @@
+
+steps:
+- checkout: self
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: DEV Build'
+  inputs:
+    PathtoPublish: '$(buildArtifactPath)'
+    ArtifactName: '$(pipelineArtifactName)'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      git push --prune https://$(GITHUB_PAT)@github.com/RoozbehBandpey/mlops-4-time-series \
+        +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
+
+# - task: configuredatabricks@0
+#   inputs:
+#     url: $(DATABRICKS_WORKSPACE_URL)
+#     token: $(DATABRICKS_ACCESS_TOKEN)
+
+# - task: startcluster@0
+#   inputs:
+#     clusterid: $(TEST_CLUSTER_ID)
+
+# - task: executenotebook@0
+#   inputs:
+#     notebookPath: '/Repos/roozbeh.bandpey@accenture.com/mlops-forecasting/data_ops/demand-forecasting-dev/01_eda'
+#     existingClusterId: $(TEST_CLUSTER_ID)
