@@ -16,15 +16,15 @@ useremail = dbutils.notebook.entry_point.getDbutils().notebook().getContext().us
 username = useremail.split('@')[0]
 
 # Please replace this cell should you want to store data somewhere else.
-database_name = '{}_var'.format(re.sub('\W', '_', username))
+database_name = 'var'
 _ = sql("CREATE DATABASE IF NOT EXISTS {}".format(database_name))
 
 # Similar to database, we will store actual content on a given path
-home_directory = '/FileStore/{}/var'.format(username)
+home_directory = '/FileStore/var'
 dbutils.fs.mkdirs(home_directory)
 
 # Where we might stored temporary data on local disk
-temp_directory = "/tmp/{}/var".format(username)
+temp_directory = "/tmp/var"
 Path(temp_directory).mkdir(parents=True, exist_ok=True)
 
 # COMMAND ----------
@@ -38,10 +38,10 @@ config = {
   'volatility_table'          : f'{database_name}.volatility',
   'monte_carlo_table'         : f'{database_name}.monte_carlo',
   'trials_table'              : f'{database_name}.trials',
-  'model_name'                : 'var_{}'.format(re.sub('\W', '_', username)),
+  'model_name'                : 'var',
   'feature_names'             : ['SP500', 'NYSE', 'OIL', 'TREASURY', 'DOWJONES'],
   'yfinance_start'            : '2018-05-01',
-  'yfinance_stop'             : '2020-05-01',
+  'yfinance_stop'             : '2023-01-01',
   'model_training_date'       : '2019-09-01',
   'num_runs'                  : 32000,
   'past_volatility'           : 90,

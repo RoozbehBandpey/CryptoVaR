@@ -187,3 +187,7 @@ _ = (
 # COMMAND ----------
 
 _ = sql('OPTIMIZE {} ZORDER BY (`date`, `ticker`)'.format(config['trials_table']))
+
+# COMMAND ----------
+
+

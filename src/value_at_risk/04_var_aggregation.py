@@ -115,7 +115,7 @@ plt.show()
 
 risk_exposure_industry = (
   simulation_df
-    .filter(F.col('country') == 'PERU')
+    .filter(F.col('country') == 'USA')
     .groupBy('date', 'industry')
     .agg(Summarizer.sum(F.col('returns')).alias('returns'))
     .withColumn('var_99', var(F.col('returns'), F.lit(99)))
@@ -131,3 +131,7 @@ import numpy as np
 risk_contribution_country = pd.crosstab(risk_exposure_industry['date'], risk_exposure_industry['industry'], values=risk_exposure_industry['var_99'], aggfunc=np.sum)
 risk_contribution_country = risk_contribution_country.div(risk_contribution_country.sum(axis=1), axis=0)
 risk_contribution_country.plot.bar(figsize=(20,8), colormap="Pastel1", stacked=True, width=0.9)
+
+# COMMAND ----------
+
+

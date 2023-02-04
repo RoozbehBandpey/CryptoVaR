@@ -1,19 +1,6 @@
 # Databricks notebook source
-# MAGIC %md 
-# MAGIC You may find this series of notebooks at https://github.com/databricks-industry-solutions/value-at-risk on the `web-sync` branch. For more information about this solution accelerator, visit https://www.databricks.com/solutions/accelerators/market-risk.
-
-# COMMAND ----------
-
 # MAGIC %md
-# MAGIC <img src=https://d1r5llqwmkrl74.cloudfront.net/notebooks/fs-lakehouse-logo.png width="600px">
-# MAGIC 
-# MAGIC [![DBU](https://img.shields.io/badge/DBU-XL-red)]()
-# MAGIC [![COMPLEXITY](https://img.shields.io/badge/COMPLEXITY-401-red)]()
-# MAGIC 
-# MAGIC *Traditional banks relying on on-premises infrastructure can no longer effectively manage risk. Banks must abandon the computational inefficiencies of legacy technologies and build an agile Modern Risk Management practice capable of rapidly responding to market and economic volatility. Using value-at-risk use case, you will learn how Databricks is helping FSIs modernize their risk management practices, leverage Delta Lake, Apache Spark and MLFlow to adopt a more agile approach to risk management.* 
-# MAGIC 
-# MAGIC ___
-# MAGIC <antoine.amend@databricks.com>
+# MAGIC Run config to create database and tables
 
 # COMMAND ----------
 
